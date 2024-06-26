@@ -34,7 +34,7 @@ class _AuthPageState extends State<AuthPage>
         child: Center(
           child: AnimatedSize(
             duration: Duration(milliseconds: 300),
-            vsync: this,
+            //  vsync: this,
             child: Card(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -114,7 +114,6 @@ class _AuthPageState extends State<AuthPage>
         result.user!.phoneNumber!,
         result.user!.uid,
         result.user!.displayName ?? '',
-        result.user!.photoURL ?? ''
-        );
+        result.user!.photoURL ?? '');
   }
 }

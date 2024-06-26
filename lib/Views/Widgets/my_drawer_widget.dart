@@ -17,7 +17,6 @@ class MyDrawer extends Drawer {
               .doc(FirebaseAuth.instance.currentUser!.uid)
               .snapshots(),
           builder: (context, AsyncSnapshot<dynamic> asyncSnapshot) {
-
             if (asyncSnapshot.connectionState == ConnectionState.waiting)
               return Center(
                 child: CircularProgressIndicator(),
@@ -26,12 +25,14 @@ class MyDrawer extends Drawer {
             return Column(
               children: [
                 UserAccountsDrawerHeader(
-                  accountName: Text(asyncSnapshot.data.data()['displayName'] ?? ''),
-                  accountEmail: Text(asyncSnapshot.data.data()['phoneNumber'] ?? ''),
+                  accountName:
+                      Text(asyncSnapshot.data.data()['displayName'] ?? ''),
+                  accountEmail:
+                      Text(asyncSnapshot.data.data()['phoneNumber'] ?? ''),
                   currentAccountPicture: CircleAvatar(
-                    foregroundImage:
-                        NetworkImage(asyncSnapshot.data.data()['profilePic'] ?? ''),
-                    backgroundColor: Theme.of(context).accentColor,
+                    foregroundImage: NetworkImage(
+                        asyncSnapshot.data.data()['profilePic'] ?? ''),
+                    backgroundColor: Theme.of(context).canvasColor,
                   ),
                 ),
                 Divider(),
